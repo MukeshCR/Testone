@@ -24,7 +24,7 @@ public class BaseTest {
 @BeforeClass
     public void ConfigureAppium () throws MalformedURLException {
 
-    service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//CR Mukesh//AppData//Roaming//npm//node_modules//appium//build//lib//main.js")).withIPAddress("127.0.0.1").usingPort(4723).build();
+    service = new AppiumServiceBuilder().withAppiumJS(new File("C://Users//mukesh.radhakrishna//AppData//Roaming//npm//node_modules//appium//build//lib//main.js")).withIPAddress("127.0.0.1").usingPort(4723).build();
     service.start();
 
     Boolean value =service.isRunning();
@@ -32,7 +32,8 @@ public class BaseTest {
 
     UiAutomator2Options options = new UiAutomator2Options();
     options.setDeviceName("google");
-    options.setApp("C://Users//CR Mukesh//IdeaProjects//Appium//src//main//resources//ApiDemos-debug.apk");
+   // options.setApp("C://Users//CR Mukesh//IdeaProjects//Appium//src//main//resources//ApiDemos-debug.apk");
+    options.setApp("C://Users//mukesh.radhakrishna//IdeaProjects//Appium//src//main//resources//General-Store.apk");
 
     driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

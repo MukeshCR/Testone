@@ -30,6 +30,8 @@ public class eCommerceTest02 extends BaseTest{
                 AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Air Jordan 9 Retro\"));"));
         int productCount = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).size();
 
+        //adding product to the cart
+
         for(int i =0; i< productCount; i++) {
             String productName = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
         if (productName.equalsIgnoreCase("Air Jordan 9 Retro"))
@@ -37,11 +39,16 @@ public class eCommerceTest02 extends BaseTest{
         }
         driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 
+        //waiting for the cart page to get displayed to verfiy the product is added in the cart
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")), "text", "Cart"));
 
+        // verifying the added product is same and matched with the product in the cart
         String lastpageproductName = driver.findElement(By.id("com.androidsample.generalstore:id/productName")).getText();
         Assert.assertEquals(lastpageproductName, "Air Jordan 9 Retro");
+
+
 
     }
 }

@@ -66,6 +66,11 @@ public class BaseTest {
                 ((RemoteWebElement) firstImage).getId(), "direction", "left", "percent", 0.35));
     }
 
+    public Double getFormattedAmount(String amount) {
+        Double actualPrice = Double.parseDouble(amount.substring(1));
+        return actualPrice;
+    }
+
     @AfterClass
     public void TearDown() {
     driver.quit();

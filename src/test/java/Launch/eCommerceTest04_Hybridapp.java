@@ -37,15 +37,17 @@ public class eCommerceTest04_Hybridapp extends BaseTest {
         driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
 
         Thread.sleep(5000);
+        //getting the list of contexts from appium and printing on the console
         Set<String> contexts = driver.getContextHandles();
         for (String contextName : contexts) {
             System.out.println(contexts);
         }
-
+        // switching to web view from appium native app
         driver.context("WEBVIEW_com.androidsample.generalstore");
         driver.findElement(By.name("q")).sendKeys("Mukesh CR");
         Thread.sleep(3000);
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        // switching back to the native app
         driver.context("NATIVE_APP");
 
 
